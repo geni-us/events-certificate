@@ -9,8 +9,8 @@ import pandas as pd
 import streamlit as st
 from pathlib import Path
 from docxtpl import DocxTemplate
-import docx2pdf
-from docx2pdf import convert
+import convertapi
+convertapi.api_secret = 'M9EovZhpcl31DxWP'
 import os
 
 
@@ -116,10 +116,12 @@ if envoyer or st.session_state.envoyer_state :
                 }
         
             doc.render(context)
-            output_path = output_dir / "certificate.DOCX"
+            output_path = output_dir / "certificate.docx"
             doc.save(output_path)
             saved_file = output_dir
-            converted = convert (saved_file, output_pdf) 
+            converted = convertapi.convert('pdf', { 'File': './certificate/docx/affiche/certificate.docx' })
+            converted.file.save('./certificate/certificatepdf/affiche/certificate.pdf')
+
             
             
             certificate = "certificate.pdf"
@@ -166,10 +168,11 @@ if envoyer or st.session_state.envoyer_state :
                     }
             
                 doc.render(context)
-                output_path = output_dir / "certificate.DOCX"
+                output_path = output_dir / "certificate.docx"
                 doc.save(output_path)
                 saved_file = output_dir
-                converted = convert (saved_file, output_pdf)
+                converted = convertapi.convert('pdf', { 'File': './certificate/docx/orale/certificate.docx' })
+                converted.file.save('./certificate/certificatepdf/orale/certificate.pdf')
                 
                 certificate = "certificate.pdf"
                 filepath = output_pdf/ certificate
