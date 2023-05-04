@@ -17,34 +17,13 @@ import os
 
 
 st.set_page_config(page_title="Gestionnaire des attestations", page_icon=":bar_chart:", layout='wide')
-footer="""<style>
-a:link , a:visited{
-color: grey;
-background-color: transparent;
-
-}
-
-a:hover,  a:active {
-color: red;
-background-color: transparent;
-
-}
-
-.footer {
-position: fixed;
-left: 0;
-bottom: 0;
-width: 100%;
-background-color: white;
-color: tomato;
-text-align: center;
-}
-</style>
-<div class="footer">
-<p>E-Certificate Auto Generator For Scientific Events  <a style='display: block; text-align: center;' href="mailto:hadmaher83@gmail.com" target="_blank"> 🏆  Geni-us © 2022</a></p>
-</div>
-"""
-st.markdown(footer,unsafe_allow_html=True)
+hide_menu_style = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        </style>
+        """
+st.markdown(hide_menu_style,unsafe_allow_html=True)
 
 
 
