@@ -137,8 +137,11 @@ if envoyer or st.session_state.envoyer_state :
             st.error("vous n'avez pas participé à ce congrès - Vérifier le mail du premier auteur")
             
         with tab2:
+            if nbr_o==0:
+                st.error("vous n'avez pas de communications orales")
             
-            if nbr > 0:
+                
+            elif nbr_o > 0:
                     
                 
                 option_titre1=df_o_mail.Titre.unique().tolist()
